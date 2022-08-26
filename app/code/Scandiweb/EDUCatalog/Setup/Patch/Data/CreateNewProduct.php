@@ -20,9 +20,7 @@ use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory as CategoryCo
 
 class CreateNewProduct implements DataPatchInterface
 {
-    /**
-     * @var State
-     */
+    
     protected State $appState;
 
     protected ModuleDataSetupInterface $setup;
@@ -103,14 +101,12 @@ class CreateNewProduct implements DataPatchInterface
         // save the product to the repository
         $product = $this->productRepository->save($product);
 
-        $categoryTitles = ['men'];
+        $categoryTitles = ['Men'];
         $categoryIds = $this->categoryCollectionFactory->create()
             ->addAttributeToFilter('name', ['in' => $categoryTitles])
             ->getAllIds();
 
         $this->categoryLink->assignProductToCategories($product->getSku(), $categoryIds);
-
-        // set source item...
     }
 
     public static function getDependencies()
