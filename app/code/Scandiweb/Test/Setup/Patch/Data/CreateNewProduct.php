@@ -1,6 +1,6 @@
 <?php
 
-namespace Scandiweb\EDUCatalog\Setup\Patch\Data;
+namespace Scandiweb\Test\Setup\Patch\Data;
 
 use Magento\Framework\App\State;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
