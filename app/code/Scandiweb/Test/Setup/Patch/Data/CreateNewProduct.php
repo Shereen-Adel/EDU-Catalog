@@ -98,11 +98,24 @@ class CreateNewProduct implements DataPatchInterface
 
     }
 
+    /**
+     * @return CreateNewProduct|void
+     * @throws \Exception
+     */
     public function apply()
     {
         $this->appState->emulateAreaCode('adminhtml', [$this, 'execute']);
     }
 
+    /**
+     * @return void
+     * @throws \Magento\Framework\Exception\CouldNotSaveException
+     * @throws \Magento\Framework\Exception\InputException
+     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws \Magento\Framework\Exception\StateException
+     * @throws \Magento\Framework\Validation\ValidationException
+     */
     public function execute()
     {
         // create the product
@@ -158,11 +171,17 @@ class CreateNewProduct implements DataPatchInterface
         $this->categoryLink->assignProductToCategories($product->getSku(), $categoryIds);
     }
 
+    /**
+     * @return array|string[]
+     */
     public static function getDependencies()
     {
         return [];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function getAliases()
     {
         return [];
