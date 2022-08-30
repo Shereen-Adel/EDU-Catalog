@@ -102,7 +102,7 @@ class CreateNewProduct implements DataPatchInterface
      * @return CreateNewProduct|void
      * @throws \Exception
      */
-    public function apply()
+    public function apply(): void
     {
         $this->appState->emulateAreaCode('adminhtml', [$this, 'execute']);
     }
@@ -116,7 +116,7 @@ class CreateNewProduct implements DataPatchInterface
      * @throws \Magento\Framework\Exception\StateException
      * @throws \Magento\Framework\Validation\ValidationException
      */
-    public function execute()
+    public function execute(): void
     {
         // create the product
         $product = $this->productInterfaceFactory->create();
@@ -174,7 +174,7 @@ class CreateNewProduct implements DataPatchInterface
     /**
      * @return array|string[]
      */
-    public static function getDependencies()
+    public static function getDependencies(): array
     {
         return [];
     }
@@ -182,7 +182,7 @@ class CreateNewProduct implements DataPatchInterface
     /**
      * @return array|string[]
      */
-    public function getAliases()
+    public function getAliases(): array
     {
         return [];
     }
